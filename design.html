@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+  body{
+    background-color: #f9d4c5;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  
+  }
+       /* Media queries for small devices */
+       @media screen and (max-width: 600px) {
+            /* Align select and button vertically */
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /* Adjust margin for select and button */
+            .form-row > * {
+                margin-bottom: 10px;
+            }
+        }
+
+#top {
+margin-left: -30px;
+font-size: large;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 9999;
+
+    position: fixed;
+  top: 0;
+  width: 120%;
+  align-items: center;
+  height: 30vh;
+  background-image: url("https://i.imgur.com/84uunOO.jpeg");
+  background-size: cover;
+  position: fixed;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  margin-left: 10px;
+}
+
+#abc{
+    display: block;
+}
+
+.horizontal-align {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: auto;
+	padding: 20px 30px;
+	margin-top:7% ;
+    margin-left: 30px;
+	box-sizing: border-box;
+  left: 0;
+	
+	font-size: 0;
+	& > * {font-size: initial;}
+	
+	&.two-items .item {width:45%;}
+	
+
+
+
+
+
+
+	.item {
+		display: inline-block;
+		vertical-align: top;
+		height: auto;
+    margin-left: 10px;
+		min-height: 100px;
+		padding: 15px 25px;
+		box-sizing: border-box;
+		border: 1px solid #ccc;				
+		background: #fdf3f0;
+    overflow: visible;
+
+    overflow-y: scroll; 
+    /* overflow: auto; */
+
+	}
+}
+
+.item >img{
+        background: #fdf3f0;
+flex-wrap: wrap;
+top: 10;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  margin-left:6%;
+
+}
+
+.box {
+  width: 30%;
+  float: left;
+  border: 2px solid red;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.content {
+    position: absolute;
+    font-family: roboto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Codepen select option css */
+
+select {
+   -webkit-appearance:none;
+   -moz-appearance:none;
+   -ms-appearance:none;
+   appearance:none;
+   outline:0;
+   box-shadow:none;
+   border:0!important;
+   background: #ffffff;
+   background-image: none;
+   flex: 1;
+   padding: 0 .5em;
+   color:#2b2727;
+   cursor:pointer;
+   font-size: 1em;
+   font-family: 'roboto', sans-serif;
+}
+
+select::-ms-expand {
+   display: none;
+}
+
+.select {
+   position: relative;
+   display: flex;
+   width: 20em;
+   height: 3em;
+   line-height: 3;
+   background: #6f8b82;
+   overflow: hidden;
+   border-radius: .25em;
+}
+
+.select::after {
+   content: '\25BC';
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 0 1em;
+   background: #2b2e2e;
+   cursor:pointer;
+   pointer-events:none;
+   transition:.25s all ease;
+}
+
+.select:hover::after {
+   color: #23b499;
+
+}
+
+h1{
+    color: #fff;
+    font-family: "Times New Roman";
+margin-right: 20px;
+}
+
+.button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            background-color:#628dad;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    .button:hover{
+      color:#628dad;
+      background-color: #fff;
+    }
+        .box2 {
+          display: flex;
+  flex-wrap: wrap;
+  row-gap: 35px;
+  column-gap: 12em;
+}
+
+.box2 > div {
+  flex: 1;
+  /* border:2px solid #23b499; */
+
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: mySecFont;
+    src: url(Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: myThirdFont;
+    src: url(Zyzol-Wyd3n.ttf);
+}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+    
+  <div id="top">
+    <form action="" onsubmit="dataServer(); return false;" class="form">
+      <div class="form-row" style="display: block; margin-top: -30px;">
+        <h1 id="abc" style="font-family:myThirdFont;">LEVEL</h1>
+<center>
+        
+
+  <div class="select">
+  
+      
+      <select  id="level">
+          <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <option value="3">Level 3</option>
+        <option value="4">Level 4</option>
+      </select>
+  </div></center>
+
+      </div>
+  
+      <div class="form-row" style="display: block; margin-top: -30px;">
+        <div id="writing-types" ><h1 style="font-family:myThirdFont;">TYPE OF WRITING:</h1></div>
+
+
+<div class="select">
+    <select id="writing-type" >
+        <option value="Narrative Writing Feedback">Narrative Writing Feedback</option>
+        <option value="Persuasive Writing Feedback">Persuasive Writing Feedback</option>
+        <option value="Review Writing Feedback">Review Writing Feedback</option>
+        <option value="Poetic Writing Feedback">Poetic Writing Feedback</option>
+        <option value="Expository Writing Feedback">Expository Writing Feedback</option>
+        <option value="Technical Writing Feedback">Technical Writing Feedback</option>
+      </select>
+
+
+</div>
+              </div>
+  
+      <button class="button" type="submit" style="margin-top: 25px;">Get Feedback</button>
+    </form>
+  
+
+</div>
+  
+
+   <br>
+
+       <div >
+           
+        <div >
+            </div>
+            <br>
+<br>
+ 
+
+<div class="horizontal-align two-items">
+    <div class="item">
+      <h1 style=" color: #628dad; font-family: myFirstFont;">Student Writing</h1>
+
+   
+   
+      <div class="box2" style="height: 510px;">
+
+<div >      
+    <img src="https://i.imgur.com/6Y2dygK.png" width="550%" alt="abc">
+
+
+
+    
+
+  </div>        
+<div>
+
+  <textarea name="" id="writing-input" cols="30" rows="10"   style="  max-width: 400%; overflow-y: scroll; ">
+  </textarea>
+</div>  
+  
+ 
+
+</div>
+
+  </div>
+
+
+
+
+  <div class=" item"  >
+      <h1 style=" color: #628dad;  font-family: myFirstFont; " >Student Feedback</h1>
+<!-- <textarea name="" id="result" disabled rows="10" cols="60" style="resize: none;"> -->
+
+
+   <div class="box2">
+<div>
+  <img src="https://i.imgur.com/2yr7CAg.png" width="450%" alt="abc">
+
+</div>  
+  
+<div>
+<textarea name="" id="result" disabled cols="30"> </textarea>
+</div>
+  
+    <div style="display: flex; width: 70px;">
+      <img src="./img/i.png" width="100%" alt="">  
+      <h2 style="text-align: center; margin-top: 15px; color: #628dad; ">Structure</h2>
+    </div>
+  
+  <div >
+<textarea name="" id="" cols="20" disabled></textarea>
+  </div>
+  
+  <div style="display: flex; width: 60px;">
+    <img src="./img/i.png" width="100%" alt="">  
+    <h2 style="text-align: center; margin-top: 15px; color: #628dad; ">Content</h2>
+  </div>
+  
+  <div><textarea name=""  id="" disabled></textarea></div>
+
+
+
+</div>
+
+  <div name=""  id="result" style="resize: none; display: flex; color: #628dad;">
+  </div>
+
+
+<br>
+</div>
+
+</div>
+
+
+
+
+       </div>
+
+
+
+
+
+
+<!-- Bootstrap -->
+<div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    
+        <div class="col">
+          <div class="card">
+            <img src="https://i.imgur.com/7G7ENGq.jpg" class="card-img-top" alt="...">
+        </div>
+        </div>
+        
+        
+        <div class="col">
+            <div class="card">
+              <img src="https://i.imgur.com/7G7ENGq.jpg" class="card-img-top" alt="...">
+          </div>
+          </div>
+    
+          
+        <div class="col">
+            <div class="card">
+              <img src="https://i.imgur.com/tRpCoiF.jpg" class="card-img-top" alt="...">
+          </div>
+          </div>
+    
+          
+        <div class="col">
+            <div class="card">
+              <img src="https://i.imgur.com/CC7KGU3.jpg" class="card-img-top" alt="...">
+          </div>
+          </div>
+    
+          
+        <div class="col">
+            <div class="card">
+              <img src="https://i.imgur.com/Ks1LPOq.jpg" class="card-img-top" alt="...">
+          </div>
+          </div>
+    
+          
+        <div class="col">
+            <div class="card">
+              <img src="./img/f.jpg" class="card-img-top" alt="...">
+          </div>
+          </div>
+    
+          
+        
+        
+      </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+  </div>
+  
+   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+
+
+function dataServer() {
+  var level = document.querySelector("#level").value;
+  var writingType = document.querySelector("#writing-type").value;
+  var writingInput = document.querySelector("#writing-input").value;
+
+  axios.post(`http://localhost:3001/data`,
+  {
+    level: level,
+    writingType: writingType,
+    writingInput: writingInput
+  })
+  
+  .then(function (response) {
+      document.querySelector("#result").innerHTML = JSON.stringify(response.data.text);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+   </script>
+<script
+src="https://code.jquery.com/jquery-3.1.1.min.js"
+integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+crossorigin="anonymous"></script>
+</body>
+</html>
